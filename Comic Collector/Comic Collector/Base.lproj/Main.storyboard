@@ -36,7 +36,7 @@
                     <navigationItem key="navigationItem" id="rPi-aA-DTM">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="70Q-Xp-wRk">
                             <connections>
-                                <segue destination="2w2-HP-V98" kind="show" id="Y42-sN-kQV"/>
+                                <segue destination="2w2-HP-V98" kind="show" identifier="comicSegue" id="Y42-sN-kQV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -58,6 +58,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comic book dummy image-01.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l4g-mD-dTV">
                                 <rect key="frame" x="50" y="84" width="275" height="400"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="hl0-X3-yAd"/>
                                 </constraints>
@@ -67,12 +68,23 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="doneTyping:" destination="2w2-HP-V98" eventType="editingDidEndOnExit" id="Btq-0T-Jla"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsS-fL-dh6">
                                 <rect key="frame" x="172.5" y="551" width="30" height="30"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="addTapped:" destination="2w2-HP-V98" eventType="touchUpInside" id="xxg-hW-g0I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntk-Xr-4Pj">
+                                <rect key="frame" x="165" y="575" width="45" height="30"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="2w2-HP-V98" eventType="touchUpInside" id="4SL-Sq-gsd"/>
+                                    <action selector="deleteTapped:" destination="2w2-HP-V98" eventType="touchUpInside" id="G8Q-xu-c7d"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -85,7 +97,9 @@
                             <constraint firstItem="NsS-fL-dh6" firstAttribute="centerX" secondItem="Qvw-rL-oWf" secondAttribute="centerX" id="fpv-8M-72h"/>
                             <constraint firstItem="3Zb-0c-gfb" firstAttribute="top" secondItem="l4g-mD-dTV" secondAttribute="bottom" constant="20" id="g5A-VX-LTx"/>
                             <constraint firstItem="3Zb-0c-gfb" firstAttribute="width" secondItem="l4g-mD-dTV" secondAttribute="width" id="gQX-1U-PZ1"/>
+                            <constraint firstItem="ntk-Xr-4Pj" firstAttribute="top" secondItem="NsS-fL-dh6" secondAttribute="bottom" constant="-6" id="hjh-9r-z88"/>
                             <constraint firstItem="NsS-fL-dh6" firstAttribute="top" secondItem="3Zb-0c-gfb" secondAttribute="bottom" constant="17" id="iFA-Ae-RbR"/>
+                            <constraint firstItem="ntk-Xr-4Pj" firstAttribute="centerX" secondItem="Qvw-rL-oWf" secondAttribute="centerX" id="psB-0C-lbb"/>
                             <constraint firstItem="a1L-hj-mTV" firstAttribute="trailing" secondItem="l4g-mD-dTV" secondAttribute="trailing" constant="50" id="ybM-bJ-D6q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a1L-hj-mTV"/>
@@ -105,7 +119,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addupdate" destination="NsS-fL-dh6" id="Cq4-El-mV1"/>
                         <outlet property="comicImageView" destination="l4g-mD-dTV" id="OAC-e2-pYN"/>
+                        <outlet property="deleteButton" destination="ntk-Xr-4Pj" id="oLe-Q9-2wU"/>
                         <outlet property="titleTextField" destination="3Zb-0c-gfb" id="9Zy-JQ-ba1"/>
                     </connections>
                 </viewController>

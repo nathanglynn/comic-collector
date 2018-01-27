@@ -49,6 +49,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.imageView?.image = UIImage(data: (comic.image)!)
             return cell
         }
+    // function to allow user to select a row and view the comic
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+            let comic = comiclist[indexPath.row]
+        performSegue(withIdentifier: "comicSegue", sender: comic)
+    }
+    // function to send the comic that was selected to the comic view controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! ComicViewController
+        nextVC.comic = sender as? ComicData
+    }
 }
 
 
