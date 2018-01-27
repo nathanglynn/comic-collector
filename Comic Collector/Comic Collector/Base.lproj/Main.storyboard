@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="squ-GS-kGo">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +14,125 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="Comic_Collector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ju3-rf-KMt">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ju3-rf-KMt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9ce-2K-xmK"/>
+                            <constraint firstItem="Ju3-rf-KMt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Cro-Z9-NA9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ju3-rf-KMt" secondAttribute="bottom" id="QkA-QS-bPk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ju3-rf-KMt" secondAttribute="trailing" id="rxH-LV-o3P"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="rPi-aA-DTM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="70Q-Xp-wRk">
+                            <connections>
+                                <segue destination="2w2-HP-V98" kind="show" id="Y42-sN-kQV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Ju3-rf-KMt" id="y6R-Yi-64f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="260" y="132.68365817091455"/>
+        </scene>
+        <!--Comic View Controller-->
+        <scene sceneID="ldF-Vv-Aqg">
+            <objects>
+                <viewController id="2w2-HP-V98" customClass="ComicViewController" customModule="Comic_Collector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qvw-rL-oWf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comic book dummy image-01.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l4g-mD-dTV">
+                                <rect key="frame" x="50" y="84" width="275" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="hl0-X3-yAd"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Zb-0c-gfb">
+                                <rect key="frame" x="50" y="504" width="275" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsS-fL-dh6">
+                                <rect key="frame" x="172.5" y="551" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="2w2-HP-V98" eventType="touchUpInside" id="xxg-hW-g0I"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="l4g-mD-dTV" firstAttribute="top" secondItem="a1L-hj-mTV" secondAttribute="top" constant="20" id="8zK-7g-rdI"/>
+                            <constraint firstItem="3Zb-0c-gfb" firstAttribute="centerX" secondItem="Qvw-rL-oWf" secondAttribute="centerX" id="Kja-Sd-cgu"/>
+                            <constraint firstItem="l4g-mD-dTV" firstAttribute="leading" secondItem="a1L-hj-mTV" secondAttribute="leading" constant="50" id="Xpy-zV-Vct"/>
+                            <constraint firstItem="l4g-mD-dTV" firstAttribute="centerX" secondItem="Qvw-rL-oWf" secondAttribute="centerX" id="erp-y2-Bc8"/>
+                            <constraint firstItem="NsS-fL-dh6" firstAttribute="centerX" secondItem="Qvw-rL-oWf" secondAttribute="centerX" id="fpv-8M-72h"/>
+                            <constraint firstItem="3Zb-0c-gfb" firstAttribute="top" secondItem="l4g-mD-dTV" secondAttribute="bottom" constant="20" id="g5A-VX-LTx"/>
+                            <constraint firstItem="3Zb-0c-gfb" firstAttribute="width" secondItem="l4g-mD-dTV" secondAttribute="width" id="gQX-1U-PZ1"/>
+                            <constraint firstItem="NsS-fL-dh6" firstAttribute="top" secondItem="3Zb-0c-gfb" secondAttribute="bottom" constant="17" id="iFA-Ae-RbR"/>
+                            <constraint firstItem="a1L-hj-mTV" firstAttribute="trailing" secondItem="l4g-mD-dTV" secondAttribute="trailing" constant="50" id="ybM-bJ-D6q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="a1L-hj-mTV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9l4-bc-SVh">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="wbV-UE-3bV">
+                                <connections>
+                                    <action selector="cameraTapped:" destination="2w2-HP-V98" id="qDs-Sx-OCC"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Photos" id="5xo-QI-jsH">
+                                <connections>
+                                    <action selector="photosTapped:" destination="2w2-HP-V98" id="1M9-Wg-edt"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="comicImageView" destination="l4g-mD-dTV" id="OAC-e2-pYN"/>
+                        <outlet property="titleTextField" destination="3Zb-0c-gfb" id="9Zy-JQ-ba1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rne-im-7Hi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.79999999999995" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wvc-oz-cEg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="squ-GS-kGo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Lrq-ef-d0k">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZPz-uU-8vt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3xv-h1-Mao" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-550" y="81"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="comic book dummy image-01.png" width="1989" height="3072"/>
+    </resources>
 </document>
